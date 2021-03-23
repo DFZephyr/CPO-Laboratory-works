@@ -18,9 +18,13 @@
     Yu Jie complete the immutable version hashmap and Testimmutablehashmap
     
 #### Explanation of taken design decisions and analysis:
-    The library mainly contains two parts, one is a mutable object part, and the functions in it will change the source hashmap.  The main operations included in this part are adding, searching, deleting, converting to an array, etc. The other part is the immutable object part, mainly including adding , Delete, merge and other operations.
+    The library mainly contains two parts, one is a mutable object part, and the functions in it will change the source hashmap.  
+    The main operations included in this part are adding, searching, deleting, converting to an array, etc. 
+    The other part is the immutable object part, mainly including adding , Delete, merge and other operations.
     
 #### Work Demonstration:
     The test file is saved in the src.All you need to do is run it in pycharm.
 #### Conclusion:
-    First of all, in this lab, I felt many problems that need to be considered as a library developer. An excellent container library should support both types of functions of variable objects and immutable objects. Function, which really helped us to detect many problems, we also learned to use Hypothesis library to do the test
+    First of all, in this lab, I felt many problems that need to be considered as a library developer. 
+    An excellent container library should support both types of functions of variable objects and immutable objects. 
+    Function, which really helped us to detect many problems, we also learned to use Hypothesis library to do the test
