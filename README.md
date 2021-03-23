@@ -24,7 +24,10 @@
     The other part is the immutable object part, mainly including adding , Delete, merge and other operations.
     
 #### Work Demonstration:
-    The test file is saved in the src.All you need to do is run it in pycharm.
+    The test file is saved in the src.
+    The test outcomes can be seen in the pic archive  
+    All you need to do is run it in pycharm.
+    
 #### Conclusion:
     First of all, in this lab, I felt many problems that need to be considered as a library developer. 
     An excellent container library should support both types of functions of variable objects and immutable objects. 
