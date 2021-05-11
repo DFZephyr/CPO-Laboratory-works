@@ -134,6 +134,22 @@ class HashMap(object):
                 res.append(curNode.value)
             curNode = curNode.next
         return res
+    def to_list_key(self):
+        res = []
+        iter=self.__iter__()
+        cur = iter.cur
+        curNode = iter.headers[0].head
+        while cur <= iter.size:
+            if (curNode == iter.headers[iter.cur].head):
+                curNode = curNode.next
+            if (curNode == iter.headers[cur].tail):
+                cur = cur + 1
+                curNode = iter.headers[cur].head
+            else:
+                res.append(curNode.key)
+            curNode = curNode.next
+        return res
+
 
     def map(self, f):
         iter=self.__iter__()
@@ -164,6 +180,27 @@ class HashMap(object):
                 state = f(state,curNode.value)
             curNode = curNode.next
         return state
+    def filter(self,fun):
+        iter = self.__iter__()
+        cur = iter.cur
+        curNode = iter.headers[0].head
+        while cur <= iter.size:
+            if (curNode == iter.headers[cur].head):
+                curNode = curNode.next
+            if (curNode == iter.headers[cur].tail):
+                cur = cur + 1
+                curNode = iter.headers[cur].head
+            else:
+                if(not fun(curNode.value)):
+                    curNode=curNode.next
+                    self.delete_by_key(curNode.prev.key)
+                if(curNode==iter.headers[cur].tail):
+                    cur = cur + 1
+                    curNode = iter.headers[cur].head
+                else:
+                    curNode = curNode.next
+        return  self
+
 
     def __iter__(self):
         return self
@@ -193,8 +230,57 @@ class HashMap(object):
     def get_size(self):
         return self.size
 
+class Set(object):
+    def __init__(self):
+        self.hashmap=HashMap()
+    def add(self,key, val=None):
+        if(self.hashmap.getNode(key) ==None):
+            self.hashmap.put(key,val)
+    def remove(self,key):
+        self.hashmap.delete_by_key(key)
+    def get_size(self):
+        return self.hashmap.get_size()
+    def from_list(self,list):
+        for i in list:
+            self.add(list.index(i),i)
+    def to_list(self):
+        return self.hashmap.to_list()
+    def to_list_key(self):
+        return self.hashmap.to_list_key()
+    def find(self,value):
+        return self.hashmap.getValue(value)
+    def filter(self,fun):
+        return self.hashmap.filter(fun)
+    def map(self,f):
+        self.hashmap.map(f)
+        return self.hashmap
+    def reduce(self,f,initial_state):
+        return self.hashmap.reduce(f,initial_state)
+    def mconcat(self, a, b):
+        if a != None and b != None:
+           a_key=a.to_list_key()
+           a_value=a.to_list()
+           b_key = b.to_list_key()
+           b_value = b.to_list()
+           for i in range(len(a_key)):
+               self.add(a_key[i], a_value[i])
+           for i in range(len(b_key)):
+               self.add(b_key[i], b_value[i])
+        return self
+    def mempty(self):
+        return None
 
-## immutable version for HashMap
+
+    def __iter__(self):
+        return self
+    def __next__(self):
+        self.hashmap.__next__()
+
+
+
+
+
+
 
 
 
