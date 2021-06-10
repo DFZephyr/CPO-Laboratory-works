@@ -1,5 +1,5 @@
 
-
+import copy
 ## mutable version for HashMap
 
 class Node(object):
@@ -76,6 +76,17 @@ class HashMap(object):
             self.headers = [LinkedList() for _ in range(capacity)]
         else:
             self.headers=headers
+    def __eq__(self, other):
+        self_copy=copy.deepcopy(self)
+        other_copy = copy.deepcopy(other)
+        if self.to_list().__contains__(None) and other.to_list().__contains__(None):
+            self_copy.remove(None)
+            other_copy.remove(None)
+            return   self_copy.to_list().sort()== other_copy.to_list().sort()
+        if not self.to_list().__contains__(None) and not other.to_list().__contains__(None):
+            return self.to_list().sort() == other.to_list().sort()
+        else:
+            return False
 
     def __get_hash_key(self, key):
         return hash(key) & (self.capacity - 1)
@@ -131,7 +142,7 @@ class HashMap(object):
                 cur = cur + 1
                 curNode = iter.headers[cur].head
             else:
-                res.append(curNode.value)
+                res.append(curNode.key)
             curNode = curNode.next
         return res
     def to_list_key(self):
@@ -233,7 +244,7 @@ class HashMap(object):
 class Set(object):
     def __init__(self):
         self.hashmap=HashMap()
-    def add(self,key, val=None):
+    def add(self,key=None, val=1):
         if(self.hashmap.getNode(key) ==None):
             self.hashmap.put(key,val)
     def remove(self,key):
@@ -242,7 +253,8 @@ class Set(object):
         return self.hashmap.get_size()
     def from_list(self,list):
         for i in list:
-            self.add(list.index(i),i)
+            self.add(i)
+        return self;
     def to_list(self):
         return self.hashmap.to_list()
     def to_list_key(self):
