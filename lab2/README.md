@@ -10,5 +10,5 @@ CPO-lab2
 #### 4.Date： 2020 .06.14
 
 #### 5.Variant description: Regular expression
->>>111
+      *11
 
