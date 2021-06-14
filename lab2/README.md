@@ -10,5 +10,8 @@ CPO-lab2
 #### 4.Date： 2020 .06.14
 
 #### 5.Variant description: Regular expression
-      *11
+          * Sub variants define which construction you should support:
+          *     \w, \s, \d, \, ^, ., $, *, +, ?, |, ( ), \1, \2, \n.
+          * Support functions: match, search, sub, split.
+          * Visualization as a finite state machine (state diagram and table).
 
