@@ -11,7 +11,7 @@ CPO-lab3
 
 #### 5.Variant description: variant 1
 
-  • In this variant, you should implement a lazy library for a single-linked list. For that, you should use closures. 
+  • In this variant, you should implement a lazy library for a single-linked list. For that, you should use closures.   
   • Usage of generators (yield statement) or async (async, await statements) is not allowed.
 #### 6.Synopsis:implement the following API
 
