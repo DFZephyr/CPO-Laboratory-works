@@ -15,16 +15,15 @@ CPO-lab3
   • Usage of generators (yield statement) or async (async, await statements) is not allowed.
 #### 6.Synopsis:implement the following API
 
-  head(List) – return a list first element. If the list is empty – raise an exception.
-  tail(List) – return tail of the list.
-  length(List).
-  map(List, Function) and reduce(List, Function, InitialState).
-  mempty().
-  mconcat(List1, List2) – should not force list evaluation.
-  from_list(pythonList) and to_list(List).
-  it should be an iterator.
-  Complex test – factorial    - To proof correctness, use unit tests, properties-based tests    - To proof laziness,demonstrate it for all suitable     implemented functions on an infinite list (e.g. natural numbers sequence) and a
-
+  head(List) – return a list first element. If the list is empty – raise an exception.  
+  tail(List) – return tail of the list.  
+  length(List).  
+  map(List, Function) and reduce(List, Function, InitialState).  
+  mempty().  
+  mconcat(List1, List2) – should not force list evaluation.  
+  from_list(pythonList) and to_list(List).  
+  it should be an iterator.  
+  
 #### 7.Contribution Summary:
   Linkedlist:Jie Yu
   Linkedlist_test:Dengfeng Zhang
