@@ -25,6 +25,6 @@ CPO-lab3
   it should be an iterator.  
   
 #### 7.Contribution Summary:
-  Linkedlist:Jie Yu
+  Linkedlist:Jie Yu  
   Linkedlist_test:Dengfeng Zhang
 
